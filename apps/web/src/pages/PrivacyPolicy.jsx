@@ -26,6 +26,7 @@ const PrivacyPolicy = () => {
       className="bg-[#0C0D0D] min-h-screen text-gray-300 pt-32 pb-20"
     >
       <Helmet>
+        <link rel="canonical" href="https://limenagencia.com/privacy-policy" />
         <title>Política de Privacidad | LIMEN</title>
         <meta name="description" content="Política de privacidad de LIMEN - Cómo protegemos y utilizamos tus datos en nuestro sistema estratégico." />
       </Helmet>

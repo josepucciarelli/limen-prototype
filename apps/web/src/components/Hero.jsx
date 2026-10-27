@@ -52,7 +52,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-normal"
           >
-            Estrategia, creatividad y performance. <p>Sistema diseñado para marcas que quieren escalar con </p><span className="block text-accent-lime">dirección, coherencia y resultados sostenibles.</span>
+            Estrategia, creatividad y performance. <span className="block">Sistema diseñado para marcas que quieren escalar con </span><span className="block text-accent-lime">dirección, coherencia y resultados sostenibles.</span>
           </motion.p>
 
           <motion.div

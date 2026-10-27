@@ -26,6 +26,7 @@ const TermsOfService = () => {
       className="bg-[#0C0D0D] min-h-screen text-gray-300 pt-32 pb-20"
     >
       <Helmet>
+        <link rel="canonical" href="https://limenagencia.com/terms-of-service" />
         <title>Términos de Servicio | LIMEN</title>
         <meta name="description" content="Términos y condiciones de uso para los servicios y sitio web de LIMEN." />
       </Helmet>

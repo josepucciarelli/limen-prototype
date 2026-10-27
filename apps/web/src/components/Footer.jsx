@@ -68,7 +68,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     <div className="lg:col-span-1">
                         <Link to="/" onClick={handleNavClick} className="inline-block transition-transform duration-300 transform hover:scale-105">
-                <img src="https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/619211ac2eb8708af9a1cf46277a9641.png" alt="Logo de la Agencia" className="h-20 mb-4"/>
+                <img src="https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/619211ac2eb8708af9a1cf46277a9641.png" alt="LIMEN" className="h-20 mb-4"/>
                         </Link>
                         <p className="text-gray-400 font-normal">Estrategia clara. Creatividad con propósito.</p>
                     </div>

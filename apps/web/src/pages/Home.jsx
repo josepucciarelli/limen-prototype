@@ -14,7 +14,8 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>LIMEN | Sistema estratégico para marcas que quieren crecer</title>
+        <link rel="canonical" href="https://limenagencia.com/" />
+        <title>LIMEN | Sistema estratégico para marcas en expansión</title>
         <meta name="description" content="LIMEN es un sistema estratégico que integra dirección, implementación y escalabilidad para marcas que buscan crecer con criterio." />
       </Helmet>
       <Hero />
@@ -23,7 +24,7 @@ const Home = () => {
       <About />
       
       
-      <SectionAnimator><Stats /></SectionAnimator>
+      
       <SectionAnimator><CTA /></SectionAnimator>
     </>
   );

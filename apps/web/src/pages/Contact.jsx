@@ -32,7 +32,8 @@ const Contact = () => {
   return (
     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
       <Helmet>
-        <title>Contacto | LIMEN | Sistema estratégico para marcas que quieren crecer</title>
+        <link rel="canonical" href="https://limenagencia.com/contact" />
+        <title>Contacto | LIMEN | Sistema estratégico para marcas en expansión</title>
         <meta name="description" content="Ponte en contacto con el equipo de LIMEN para soluciones estratégicas y consultas de proyectos." />
       </Helmet>
       <section className="bg-[#0C0D0D] text-white py-32 sm:py-40">

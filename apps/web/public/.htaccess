@@ -1,17 +1,19 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ index.html [L]
+  # Rutas de la app -> index.html (responden 200)
+  RewriteRule ^(contact|privacy-policy|terms-of-service)/?$ index.html [L]
 </IfModule>
 
+# Cualquier otra URL inexistente responde 404 real y muestra la página "no encontrada" de la app
+ErrorDocument 404 /index.html
+
 <IfModule mod_headers.c>
-  Header set X-Powered-By "Hostinger Horizons"
+  Header unset X-Powered-By
 
   # Cache everything on CDN by default
   Header set Cache-Control "public, s-maxage=604800, max-age=0"
-  
+
   # Cache in browser all assets
   <If "%{REQUEST_URI} =~ m#^/assets/.*$#">
     Header set Cache-Control "public, max-age=604800"
