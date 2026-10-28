@@ -18,6 +18,14 @@ ErrorDocument 404 /404.html
 <IfModule mod_headers.c>
   Header unset X-Powered-By
 
+  # Seguridad
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set Content-Security-Policy "frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+
   # HTML y demás archivos: se revalidan siempre, así cada deploy se ve al instante
   Header set Cache-Control "public, max-age=0, must-revalidate"
 

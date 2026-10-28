@@ -412,7 +412,8 @@ export default defineConfig({
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin(), iframeRouteRestorationPlugin(), sitePagesPlugin(), pocketbaseAuthPlugin(), sessionJournalPlugin()] : []),
 		react(),
-		addTransformIndexHtml,
+		// Scripts de depuración del editor de Horizons: solo en desarrollo, nunca en el sitio publicado
+		...(isDev ? [addTransformIndexHtml] : []),
 		domainCheckoutDevPlugin,
 		ecommerceTrackingPlugin(),
 	],

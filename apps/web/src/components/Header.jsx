@@ -84,7 +84,7 @@ const Header = () => {
       >
         <div className="container mx-auto px-6 h-20 flex justify-between items-center">
           <Link to="/" onClick={handleHomeClick} className="transition-transform duration-300 transform hover:scale-105">
-            <img src="https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/619211ac2eb8708af9a1cf46277a9641.png" alt="LIMEN" className="h-24 md:h-32"/>
+            <img src="/images/logo-limen.png" alt="LIMEN" className="h-24 md:h-32"/>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
@@ -119,7 +119,7 @@ const Header = () => {
             <div className="container mx-auto px-6 h-full flex flex-col">
               <div className="flex justify-between items-center h-20">
                 <Link to="/" onClick={handleHomeClick} className="transition-transform duration-300 transform hover:scale-105">
-                  <img src="https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/619211ac2eb8708af9a1cf46277a9641.png" alt="LIMEN" className="h-14"/>
+                  <img src="/images/logo-limen.png" alt="LIMEN" className="h-14"/>
                 </Link>
                 <button onClick={() => setIsOpen(false)} className="text-white">
                   <X size={28} />

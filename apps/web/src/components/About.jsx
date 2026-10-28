@@ -20,7 +20,7 @@ const About = () => {
             ease: 'easeOut'
           }}>
             <div className="rounded-2xl overflow-hidden aspect-[4/3]">
-              <img className="w-full h-full object-cover" alt="creativo trabajando en computadoras" src="https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/5307ac0a3a0ce4aa05525e4d4da843f7.jpg" />
+              <img className="w-full h-full object-cover" alt="creativo trabajando en computadoras" src="/images/quienes-somos.jpg" />
             </div>
           </motion.div>
 

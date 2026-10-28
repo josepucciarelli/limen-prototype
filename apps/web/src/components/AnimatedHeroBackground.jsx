@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const imageUrl = 'https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/b7565ee9e8e95e14bef6374dce98423f.jpg';
+const imageUrl = '/images/fondo.jpg';
 
 const layers = [
   {

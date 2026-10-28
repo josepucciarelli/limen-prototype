@@ -2,22 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const clientLogos = [
-  { name: 'InnovateCore', description: 'InnovateCore logo', image: 'https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/e9525656b9fde2b5573f268bb3871a52.png' },
-  { name: 'QuantumLeap', description: 'QuantumLeap logo', image: 'https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/effd96782a73b93d152e75bb1a10e8ff.png' },
-  { name: 'InnovateCore', description: 'InnovateCore logo', image: 'https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/e9525656b9fde2b5573f268bb3871a52.png' },
-  { name: 'QuantumLeap', description: 'QuantumLeap logo', image: 'https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/effd96782a73b93d152e75bb1a10e8ff.png' },
-  { name: 'InnovateCore', description: 'InnovateCore logo', image: 'https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/e9525656b9fde2b5573f268bb3871a52.png' },
-  { name: 'QuantumLeap', description: 'QuantumLeap logo', image: 'https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/effd96782a73b93d152e75bb1a10e8ff.png' },
-  { name: 'InnovateCore', description: 'InnovateCore logo', image: 'https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/e9525656b9fde2b5573f268bb3871a52.png' },
-  { name: 'QuantumLeap', description: 'QuantumLeap logo', image: 'https://horizons-cdn.hostinger.com/956b0fed-7d2f-4c6b-8e07-4a943ec1e56f/effd96782a73b93d152e75bb1a10e8ff.png' },
+  { name: 'LIMEN', image: '/images/clientes/limen-1.png' },
+  { name: 'Limen', image: '/images/clientes/limen-2.png' },
+  { name: 'MacStore', image: '/images/clientes/macstore.png' },
+  { name: 'Zuba', image: '/images/clientes/zuba.png' },
 ];
 
-const marqueeLogos = [...clientLogos, ...clientLogos]; // Duplicate for seamless loop
+// Cada logo ocupa 192px (w-32 + mx-8). Un "set" = 8 logos = 1536px, más ancho que la pantalla.
+const logoSet = [...clientLogos, ...clientLogos];
+const SET_WIDTH = logoSet.length * 192;
+const marqueeLogos = [...logoSet, ...logoSet]; // Duplicado para un loop continuo
 
 const TrustedClients = () => {
   const marqueeVariants = {
     animate: {
-      x: [0, -2016], // Adjust as needed based on actual width
+      x: [0, -SET_WIDTH],
       transition: {
         x: {
           repeat: Infinity,
@@ -39,7 +38,8 @@ const TrustedClients = () => {
                 {logo.image ? (
                   <img 
                     src={logo.image} 
-                    alt={logo.name} 
+                    alt={logo.name}
+                    loading="lazy"
                     className="max-h-24 max-w-24 object-contain opacity-70 grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 ) : (
