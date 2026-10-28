@@ -1,6 +1,10 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # www.limenagencia.com -> limenagencia.com (una sola versión del sitio para Google)
+  RewriteCond %{HTTP_HOST} ^www\.limenagencia\.com$ [NC]
+  RewriteRule ^(.*)$ https://limenagencia.com/$1 [R=301,L]
   # Rutas de la app -> index.html (responden 200)
   RewriteRule ^(contact|privacy-policy|terms-of-service)/?$ index.html [L]
 </IfModule>
