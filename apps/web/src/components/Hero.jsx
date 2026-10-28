@@ -42,7 +42,7 @@ const Hero = () => {
             className="text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-white uppercase"
             style={{ fontWeight: 600 }}
           >
-            Sistema y estrategia para
+            Sistema y estrategia para{' '}
             <span className="block text-accent-lime">Marcas en Expansi&oacute;n</span>
           </motion.h1>
 
