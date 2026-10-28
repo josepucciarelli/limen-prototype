@@ -31,9 +31,18 @@ jobs:
       - name: Compilar
         run: npm run build
 
+      - name: Prerenderizar páginas (HTML completo para buscadores)
+        run: |
+          npm install --no-save playwright@1.63.0
+          npx playwright install --with-deps chromium
+          node apps/web/tools/prerender.mjs dist/apps/web
+
       - name: Verificar build
         run: |
           test -f dist/apps/web/index.html
+          test -f dist/apps/web/contact.html
+          test -f dist/apps/web/404.html
+          grep -q "<h1" dist/apps/web/index.html
           test -f dist/apps/web/.htaccess
           ls -la dist/apps/web
 

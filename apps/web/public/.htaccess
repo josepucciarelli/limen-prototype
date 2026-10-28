@@ -6,7 +6,10 @@
   RewriteCond %{HTTP_HOST} ^www\.limenagencia\.com$ [NC]
   RewriteRule ^(.*)$ https://limenagencia.com/$1 [R=301,L]
   # Páginas prerenderizadas (HTML completo para buscadores)
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
   RewriteRule ^(contact|privacy-policy|terms-of-service)/?$ $1.html [L]
+  # Si falta la versión prerenderizada, usar la app normal (nunca romper la página)
+  RewriteRule ^(contact|privacy-policy|terms-of-service)/?$ index.html [L]
 </IfModule>
 
 # Cualquier otra URL inexistente responde 404 real y muestra la página "no encontrada" de la app
