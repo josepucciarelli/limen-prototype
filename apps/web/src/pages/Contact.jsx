@@ -55,7 +55,7 @@ const Contact = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1 }}
               >
-                  <a href="https://www.instagram.com/limen.agencia?igsh=MW4wNjVqaTBsY21nbw==" className="text-lg text-gray-300 hover:text-accent-lime transition-colors duration-300">Instagram</a>
+                  <a href="https://www.instagram.com/limen.mkt/" className="text-lg text-gray-300 hover:text-accent-lime transition-colors duration-300">Instagram</a>
                   <a href="https://www.facebook.com/share/1CdYEFawbX/?mibextid=wwXIfr" className="text-lg text-gray-300 hover:text-accent-lime transition-colors duration-300">Facebook</a>
               </motion.div>
             </motion.div>

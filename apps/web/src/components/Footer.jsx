@@ -57,7 +57,7 @@ const Footer = () => {
     ];
 
     const socialLinks = [
-        { icon: <Instagram size={20} />, name: 'Instagram', href: 'https://www.instagram.com/limen.agencia?igsh=MW4wNjVqaTBsY21nbw==' },
+        { icon: <Instagram size={20} />, name: 'Instagram', href: 'https://www.instagram.com/limen.mkt/' },
         { icon: <Facebook size={20} />, name: 'Facebook', href: 'https://www.facebook.com/share/1CdYEFawbX/?mibextid=wwXIfr' },
         { icon: <WhatsApp size={20} />, name: 'WhatsApp', href: 'https://wa.me/595994754526?text=Hola%20LIMEN,%20me%20interesa%20agendar%20un%20diagnóstico%20estratégico%20para%20mi%20marca.' },
     ];
