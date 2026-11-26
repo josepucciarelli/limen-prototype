@@ -2,15 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const clientLogos = [
-  { name: 'LIMEN', image: '/images/clientes/limen-1.png' },
-  { name: 'Limen', image: '/images/clientes/limen-2.png' },
   { name: 'MacStore', image: '/images/clientes/macstore.png' },
   { name: 'Zuba', image: '/images/clientes/zuba.png' },
   { name: 'Eleva by Zuba', image: '/images/clientes/eleva.png' },
 ];
 
-// Cada logo ocupa 192px (w-32 + mx-8). Un "set" = los logos x2, más ancho que la pantalla.
-const logoSet = [...clientLogos, ...clientLogos];
+// Cada logo ocupa 192px (w-32 + mx-8). Un "set" = los logos x4, más ancho que la pantalla.
+const logoSet = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];
 const SET_WIDTH = logoSet.length * 192;
 const marqueeLogos = [...logoSet, ...logoSet]; // Duplicado para un loop continuo
 

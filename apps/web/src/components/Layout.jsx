@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/toaster';
 import CustomCursor from '@/components/CustomCursor';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Layout = () => {
   return (
@@ -15,6 +16,7 @@ const Layout = () => {
           <Outlet />
         </main>
         <Footer />
+        <WhatsAppButton />
         <Toaster />
       </div>
     </>

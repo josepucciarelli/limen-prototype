@@ -11,10 +11,10 @@ const Hero = () => {
     navigate('/contact');
   };
   
-  const handleViewWorkClick = () => {
-    const portfolioSection = document.getElementById('portfolio');
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: 'smooth' });
+  const handleViewServicesClick = () => {
+    const servicesSection = document.getElementById('servicios');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -52,7 +52,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-normal"
           >
-            Estrategia, creatividad y performance. <span className="block">Sistema diseñado para marcas que quieren escalar con </span><span className="block text-accent-lime">dirección, coherencia y resultados sostenibles.</span>
+            Estrategia, creatividad y performance para escalar con <span className="text-accent-lime">dirección.</span>
           </motion.p>
 
           <motion.div
@@ -64,13 +64,20 @@ const Hero = () => {
             <Button
               onClick={handleCTAClick}
               size="lg"
-              className="bg-accent-lime hover:bg-accent-lime/90 text-black px-8 py-6 text-lg rounded-full group"
+              className="bg-accent-lime hover:bg-accent-lime/90 text-black px-6 md:px-8 py-6 text-base md:text-lg rounded-full group"
               style={{ fontWeight: 600 }}
             >
               Agenda tu diagn&oacute;stico estrat&eacute;gico
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            
+            <Button
+              onClick={handleViewServicesClick}
+              size="lg"
+              variant="outline"
+              className="bg-transparent border-white/25 hover:bg-white/5 hover:border-white/50 text-white px-8 py-6 text-lg rounded-full"
+            >
+              Ver servicios
+            </Button>
           </motion.div>
         </div>
       </div>

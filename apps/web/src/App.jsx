@@ -6,6 +6,7 @@ import Contact from '@/pages/Contact';
 import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import TermsOfService from '@/pages/TermsOfService';
 import NotFound from '@/pages/NotFound';
+import ServicePage from '@/pages/ServicePage';
 import { AnimatePresence } from 'framer-motion';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="servicios/:slug" element={<ServicePage />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-of-service" element={<TermsOfService />} />
           <Route path="*" element={<NotFound />} />

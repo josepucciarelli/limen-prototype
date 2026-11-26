@@ -1,151 +1,92 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Check } from 'lucide-react';
+import { whatsappLink, trackWhatsappClick } from '@/lib/whatsapp';
 
-const services = [{
-  title: 'Brand Strategy',
-  description: 'Definimos posicionamiento, narrativa y dirección estratégica para que cada acción tenga coherencia y propósito comercial.'
-}, {
-  title: 'Digital Marketing',
-  description: 'Gestión estructurada de contenidos y social media alineada a objetivos de crecimiento y presencia sostenida.'
-}, {
-  title: 'Content Production',
-  description: 'Fotografía y contenido audiovisual diseñados para fortalecer identidad y potenciar resultados.'
-}, {
-  title: 'Paid Media',
-  description: 'Planificación y gestión de inversión publicitaria orientada a alcance, captación y optimización continua.'
-}, {
-  title: 'Influencer & UGC Management',
-  description: 'Estrategia y coordinación de colaboraciones que amplifican la marca desde voces alineadas a su identidad.'
-}, {
-  title: 'Brand Experiences',
-  description: 'Coordinación de eventos, activaciones y desarrollo de merch para expandir la presencia de la marca más allá del entorno digital.'
-}, {
-  title: 'Web, Landing & E-commerce Developmen',
-  description: 'Diseño y desarrollo de sitios institucionales, landing pages y plataformas de comercio digital orientadas a conversión, experiencia de usuario y escalabilidad comercial.'
-  }
+const plans = [
+  {
+    name: 'GROWTH',
+    tag: 'Consolidación inicial',
+    description: 'Para verte profesional y ordenar tu presencia digital, sin depender de una agencia mes a mes.',
+    points: ['Inversión única', 'Estrategia, diseño y producción', 'Recursos propios, listos para usar'],
+    highlight: false,
+  },
+  {
+    name: 'SCALE',
+    tag: 'Expansión estratégica',
+    description: 'Marketing estratégico mensual: actuamos como partners de tu crecimiento.',
+    points: ['Inversión mensual adaptable', 'Comunicación, marca y activaciones', 'No solo estar activos: escalar'],
+    highlight: true,
+  },
 ];
 
-const Services = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const fadeIn = (x) => ({
+  initial: { opacity: 0, x },
+  whileInView: { opacity: 1, x: 0 },
+  viewport: { once: true, amount: 0.3 },
+  transition: { duration: 0.8, ease: 'easeOut' },
+});
 
-  const handleServiceClick = index => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
-  const fadeIn = (x) => ({
-    initial: { opacity: 0, x },
-    whileInView: { opacity: 1, x: 0 },
-    viewport: { once: true, amount: 0.3 },
-    transition: { duration: 0.8, ease: 'easeOut' },
-  });
-
-  return (
-    <section id="services" className="py-24 bg-[#0C0D0D]">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="mb-16">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight text-white uppercase font-bold">
-            SISTEMA <span className="text-accent-lime">LIMEN</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mt-4">
-            En LMN trabajamos desde el punto donde una marca decide profesionalizar su crecimiento.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <motion.div {...fadeIn(-50)}>
-            <div className="mb-6 min-h-[96px]">
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
-                LIMEN <span className="text-accent-lime">GROWTH</span>
-              </h3>
-              <p className="text-lg text-gray-400 mt-2">Para marcas en etapa de consolidación digital inicial.</p>
-            </div>
-            <div className="space-y-4">
-              <p className="text-base md:text-lg text-gray-400">
-                En <span className="text-accent-lime">GROWTH</span> ofrecemos un sistema autónomo de construcción y crecimiento para quienes buscan verse profesionales y ordenar su presencia digital, sin depender de una agencia mes a mes.
-              </p>
-              <p className="text-base md:text-lg text-gray-400">
-                A través de una <span className="text-accent-lime">única inversión</span>, ofrecemos un <span className="text-accent-lime">sistema claro</span> que integra estrategia, diseño y producción, dejando a cada marca con <span className="text-accent-lime">recursos propios, durables y listos para usar.</span>
-              </p>
-              <p className="text-base md:text-lg text-gray-400">
-                El objetivo es que cada proyecto pueda comunicar con claridad, sostener su presencia digital y operar de <span className="text-accent-lime">forma autónoma</span>, con una base sólida y alineada a sus objetivos reales.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div {...fadeIn(50)}>
-            <div className="mb-6 min-h-[96px]">
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
-                LIMEN <span className="text-accent-graydark">SCALE</span>
-              </h3>
-              <p className="text-lg text-gray-400 mt-2">Para marcas con operación activa que buscan expansión estratégica.</p>
-            </div>
-            <div className="space-y-4">
-              <p className="text-base md:text-lg text-gray-400">
-                <span className="text-accent-gray">SCALE</span> es una unidad de inversión mensual diseñada para marcas que necesitan implementar <span className="text-accent-gray">marketing estratégico</span> alineado a objetivos de crecimiento.
-              </p>
-              <p className="text-base md:text-lg text-gray-400">
-                Actuamos como partners, integrando comunicación digital, desarrollo de marca y activaciones desde una <span className="text-accent-gray">visión integral</span> que conecta estrategia, ejecución y expansión.
-              </p>
-              <p className="text-base md:text-lg text-gray-400">
-                La estructura del servicio se adapta al momento de la marca, optimizando recursos y profesionalizando cada punto de contacto.
-              </p>
-              <p className="text-base md:text-lg text-gray-400">El objetivo no es solo “estar activos”.</p>
-              <p className="text-base md:text-lg text-gray-400">
-                Es <span className="text-accent-gray">ESCALAR</span> con dirección.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="mt-32">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-white">
-            IMPLEMENTACIONES ESTRATÉGICAS
-          </h2>
-          {services.map((service, index) => (
-            <div key={service.title} className="border-b border-gray-800">
-              <div className="flex justify-between items-center cursor-pointer py-8 group" onClick={() => handleServiceClick(index)}>
-                <div className="flex items-center gap-4">
-                  <h3 className={`text-3xl md:text-5xl font-bold transition-colors ${activeIndex === index ? 'text-white' : 'text-gray-600 group-hover:text-gray-400'}`}>
-                    {service.title}
-                  </h3>
-                  {activeIndex === index && (
-                    <motion.div
-                      className="w-4 h-4 bg-accent-lime rounded-full"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                    />
-                  )}
-                </div>
-                <motion.div
-                  animate={{ rotate: activeIndex === index ? 45 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Plus size={40} className="text-accent-lime" />
-                </motion.div>
-              </div>
-
-              <AnimatePresence>
-                {activeIndex === index && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0, y: -20 }}
-                    animate={{ opacity: 1, height: 'auto', y: 0 }}
-                    exit={{ opacity: 0, height: 0, y: -20 }}
-                    transition={{ duration: 0.4 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="pb-8 pr-16">
-                      <p className="text-lg text-gray-400 max-w-2xl">{service.description}</p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
+// Sección "Sistema LIMEN": los dos modelos de trabajo, GROWTH y SCALE.
+const Services = () => (
+  <section id="services" className="py-24 md:py-32 bg-[#0C0D0D] scroll-mt-20">
+    <div className="container mx-auto px-6">
+      <div className="mb-14 md:mb-16">
+        <p className="text-xs md:text-sm tracking-[0.2em] text-accent-lime uppercase mb-4">01 — Sistema LIMEN</p>
+        <h2 className="text-4xl md:text-6xl lg:text-7xl leading-tight text-white uppercase font-bold mb-4">
+          Dos formas de <span className="text-accent-lime">crecer</span>
+        </h2>
+        <p className="text-lg md:text-xl text-gray-400 max-w-xl">
+          Trabajamos desde el punto donde una marca decide profesionalizar su crecimiento. Elegí según tu momento.
+        </p>
       </div>
-    </section>
-  );
-};
+
+      <div className="grid lg:grid-cols-2 gap-6">
+        {plans.map((plan, i) => (
+          <motion.div
+            key={plan.name}
+            {...fadeIn(i === 0 ? -50 : 50)}
+            className={`rounded-3xl p-8 md:p-10 flex flex-col gap-6 ${
+              plan.highlight ? 'bg-accent-lime text-black' : 'bg-white/[0.03] border border-white/10 text-white'
+            }`}
+          >
+            <span
+              className={`self-start text-xs tracking-[0.15em] uppercase px-3 py-1.5 rounded-full ${
+                plan.highlight ? 'bg-black text-accent-lime' : 'bg-white/[0.08] text-gray-300'
+              }`}
+            >
+              {plan.tag}
+            </span>
+            <h3 className="text-3xl md:text-5xl font-bold">
+              LIMEN{' '}
+              <span className={plan.highlight ? '' : 'text-accent-lime'}>{plan.name}</span>
+            </h3>
+            <p className={`text-lg ${plan.highlight ? 'text-black/75' : 'text-gray-400'}`}>{plan.description}</p>
+            <ul className="space-y-3">
+              {plan.points.map((point) => (
+                <li key={point} className="flex items-center gap-3 text-lg">
+                  <Check className={`w-5 h-5 shrink-0 ${plan.highlight ? 'text-black' : 'text-accent-lime'}`} />
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <a
+              href={whatsappLink(`Hola LIMEN, me interesa LIMEN ${plan.name} para mi marca.`)}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsappClick(`plan_${plan.name.toLowerCase()}`)}
+              className={`group mt-auto pt-4 inline-flex items-center gap-2 font-semibold text-lg ${
+                plan.highlight ? 'text-black' : 'text-accent-lime'
+              }`}
+            >
+              Quiero {plan.name}
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </a>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default Services;

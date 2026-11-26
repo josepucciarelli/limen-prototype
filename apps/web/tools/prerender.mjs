@@ -13,6 +13,13 @@ const routes = [
   ['/contact', 'contact.html'],
   ['/privacy-policy', 'privacy-policy.html'],
   ['/terms-of-service', 'terms-of-service.html'],
+  ['/servicios/brand-strategy', 'servicios/brand-strategy.html'],
+  ['/servicios/digital-marketing', 'servicios/digital-marketing.html'],
+  ['/servicios/content-production', 'servicios/content-production.html'],
+  ['/servicios/paid-media', 'servicios/paid-media.html'],
+  ['/servicios/influencer-ugc', 'servicios/influencer-ugc.html'],
+  ['/servicios/brand-experiences', 'servicios/brand-experiences.html'],
+  ['/servicios/web-ecommerce', 'servicios/web-ecommerce.html'],
   ['/pagina-inexistente-404', '404.html'],
 ];
 
@@ -73,4 +80,7 @@ try {
   await browser.close();
   server.close();
 }
-for (const [fileName, html] of out) await fs.writeFile(path.join(dist, fileName), html);
+for (const [fileName, html] of out) {
+  await fs.mkdir(path.dirname(path.join(dist, fileName)), { recursive: true });
+  await fs.writeFile(path.join(dist, fileName), html);
+}

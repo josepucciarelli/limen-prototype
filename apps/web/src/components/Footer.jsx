@@ -42,8 +42,8 @@ const Footer = () => {
             links: [
                 { name: 'Inicio', href: '/' },
                 { name: 'Sistema LMN', href: '/#services' },
-                
-                { name: 'Quienes Somos', href: '/#about' },
+                { name: 'Servicios', href: '/#servicios' },
+                { name: 'Quiénes somos', href: '/#about' },
             ],
         },
         {

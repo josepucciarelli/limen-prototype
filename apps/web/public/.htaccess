@@ -8,8 +8,11 @@
   # Páginas prerenderizadas (HTML completo para buscadores)
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
   RewriteRule ^(contact|privacy-policy|terms-of-service)/?$ $1.html [L]
+  RewriteCond %{DOCUMENT_ROOT}/servicios/$1.html -f
+  RewriteRule ^servicios/([a-z0-9-]+)/?$ servicios/$1.html [L]
   # Si falta la versión prerenderizada, usar la app normal (nunca romper la página)
   RewriteRule ^(contact|privacy-policy|terms-of-service)/?$ index.html [L]
+  RewriteRule ^servicios/(brand-strategy|digital-marketing|content-production|paid-media|influencer-ugc|brand-experiences|web-ecommerce)/?$ index.html [L]
 </IfModule>
 
 # Cualquier otra URL inexistente responde 404 real y muestra la página "no encontrada" de la app
@@ -25,6 +28,11 @@ ErrorDocument 404 /404.html
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
   Header always set Strict-Transport-Security "max-age=31536000"
   Header always set Content-Security-Policy "frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+
+  # Dominios temporales de prueba (*.hostingersite.com): que Google no los indexe
+  <If "%{HTTP_HOST} =~ /hostingersite\.com$/">
+    Header always set X-Robots-Tag "noindex, nofollow"
+  </If>
 
   # HTML y demás archivos: se revalidan siempre, así cada deploy se ve al instante
   Header set Cache-Control "public, max-age=0, must-revalidate"

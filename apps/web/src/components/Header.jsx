@@ -11,7 +11,9 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Sistema LMN', href: '/#services' },
-    { name: 'Quienes Somos', href: '/#about' },
+    { name: 'Servicios', href: '/#servicios' },
+    { name: 'Método', href: '/#metodo' },
+    { name: 'Quiénes somos', href: '/#about' },
     
     
   ];
