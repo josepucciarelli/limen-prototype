@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Header = () => {
@@ -72,23 +71,16 @@ const Header = () => {
   if (isOpen) setIsOpen(false);
 };
 
-  const handleCTA = () => {
-    navigate('/contact');
-    if (isOpen) {
-      setIsOpen(false);
-    }
-  };
-
   return (
     <>
       <motion.header
         className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${isScrolled ? 'bg-[#0C0D0D]/80 backdrop-blur-lg border-b border-white/10' : 'bg-transparent'}`}
       >
-        <div className="container mx-auto px-6 h-20 flex justify-between items-center">
+        <div className="container mx-auto px-6 h-20 flex justify-between items-center relative">
           <Link to="/" onClick={handleHomeClick} className="transition-transform duration-300 transform hover:scale-105">
             <img src="/images/logo-limen.png" alt="LIMEN" className="h-24 md:h-32"/>
           </Link>
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => (
               <a key={link.name} href={link.href} onClick={handleSmoothScroll} className="text-gray-300 hover:text-white transition-colors relative group font-medium text-base">
                 {link.name}
@@ -96,11 +88,6 @@ const Header = () => {
               </a>
             ))}
           </nav>
-          <div className="hidden md:flex items-center gap-4">
-            <Button className="bg-accent-lime text-black hover:bg-accent-lime/90 group rounded-full font-semibold" onClick={handleCTA}>
-              Comenzar <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
-            </Button>
-          </div>
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-white">
               <Menu size={28} />
@@ -143,11 +130,6 @@ const Header = () => {
                   </motion.a>
                 ))}
               </nav>
-              <div className="py-8 flex flex-col gap-4">
-                <Button className="bg-accent-lime text-black hover:bg-accent-lime/90 group w-full text-lg py-6 rounded-full font-semibold" onClick={handleCTA}>
-                    Comenzar <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </div>
             </div>
           </motion.div>
         )}
